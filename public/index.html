@@ -18,10 +18,18 @@
             console.log("Perdimos comunicacion con el servidor")
         })
 
-        socket.emit("mensaje",{nombre:"Francisco"});
+        // socket.emit("mensaje",{nombre:"Francisco"});
+        socket.emit("mensaje","Cliente web conectado");
 
         socket.on("mensaje",function(payload){
             console.log("Escuchando ", payload);
+        })
+        socket.on("emitir-mensaje",function(payload){
+            console.log(payload);
+        })
+        socket.on("bandas-activas",function(bands){
+            console.clear();
+            console.table(bands);
         })
     </script>
 </body>
